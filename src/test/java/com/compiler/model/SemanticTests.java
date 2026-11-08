@@ -89,7 +89,7 @@ class SemanticTest {
         var token = new Token(3, "i_existingvar", 0);
 
         var exception = assertThrows(SemanticError.class, () -> semantic.executeAction(102, token));
-        assertEquals("i_existingvar já declarado", exception.getMessage());
+        assertEquals("i_existingvar already declared", exception.getMessage());
     }
     
     @Test
@@ -134,7 +134,7 @@ class SemanticTest {
         var token = new Token(3, "b_active", 0);
         var exception = assertThrows(SemanticError.class, () -> semantic.executeAction(103, token));
 
-        assertEquals("b_active não declarado", exception.getMessage());
+        assertEquals("b_active not declared", exception.getMessage());
 
         assertFalse(semantic.isIdListEmpty());
     }
@@ -151,7 +151,7 @@ class SemanticTest {
         var token = new Token(3, "s_teste", 0);
         var exception = assertThrows(SemanticError.class, () -> semantic.executeAction(105, token));
 
-        assertEquals("s_teste não declarado", exception.getMessage());
+        assertEquals("s_teste not declared", exception.getMessage());
     }
 
     @Test
@@ -591,7 +591,7 @@ class SemanticTest {
             semantic.executeAction(127, token);
         });
 
-        assertEquals("f_var3 não declarado", exception.getMessage());
+        assertEquals("f_var3 not declared", exception.getMessage());
     }
 
     @Test

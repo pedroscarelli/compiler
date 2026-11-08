@@ -81,7 +81,7 @@ public class Syntatic implements Constants
         if (p >= 0)
         {
             int[] production = PRODUCTIONS[p];
-            //empilha a produção em ordem reversa
+            //pushes the production in reverse order
             for (int i=production.length-1; i>=0; i--)
             {
                 stack.push(Integer.valueOf(production[i]));

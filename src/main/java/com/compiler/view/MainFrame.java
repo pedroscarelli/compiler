@@ -82,7 +82,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         newFileBtn.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         newFileBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/compiler/ui/images/new-file.png"))); // NOI18N
-        newFileBtn.setText("novo [ctrl-n]");
+        newFileBtn.setText("new [ctrl-n]");
         newFileBtn.setFocusable(false);
         newFileBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         newFileBtn.setMaximumSize(new java.awt.Dimension(200, 70));
@@ -98,7 +98,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         openFileBtn.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         openFileBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/compiler/ui/images/open-file.png"))); // NOI18N
-        openFileBtn.setText("abrir [ctrl-o]");
+        openFileBtn.setText("open [ctrl-o]");
         openFileBtn.setFocusable(false);
         openFileBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         openFileBtn.setMaximumSize(new java.awt.Dimension(200, 70));
@@ -114,7 +114,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         saveFileBtn.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         saveFileBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/compiler/ui/images/save-file.png"))); // NOI18N
-        saveFileBtn.setText("salvar [ctrl-s]");
+        saveFileBtn.setText("save [ctrl-s]");
         saveFileBtn.setFocusable(false);
         saveFileBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         saveFileBtn.setMaximumSize(new java.awt.Dimension(200, 70));
@@ -130,7 +130,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         copyTextBtn.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         copyTextBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/compiler/ui/images/copy.png"))); // NOI18N
-        copyTextBtn.setText("copiar [ctrl-c]");
+        copyTextBtn.setText("copy [ctrl-c]");
         copyTextBtn.setFocusable(false);
         copyTextBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         copyTextBtn.setMaximumSize(new java.awt.Dimension(200, 70));
@@ -146,7 +146,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         pasteTextBtn.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         pasteTextBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/compiler/ui/images/paste.png"))); // NOI18N
-        pasteTextBtn.setText("colar [ctrl-v]");
+        pasteTextBtn.setText("paste [ctrl-v]");
         pasteTextBtn.setFocusable(false);
         pasteTextBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pasteTextBtn.setMaximumSize(new java.awt.Dimension(200, 70));
@@ -162,7 +162,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         cutTextBtn.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         cutTextBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/compiler/ui/images/cut.png"))); // NOI18N
-        cutTextBtn.setText("recortar [ctrl-x]");
+        cutTextBtn.setText("cut [ctrl-x]");
         cutTextBtn.setFocusable(false);
         cutTextBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         cutTextBtn.setMaximumSize(new java.awt.Dimension(200, 70));
@@ -178,7 +178,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         compileCodeBtn.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         compileCodeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/compiler/ui/images/play.png"))); // NOI18N
-        compileCodeBtn.setText("compilar [F7]");
+        compileCodeBtn.setText("compile [F7]");
         compileCodeBtn.setFocusable(false);
         compileCodeBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         compileCodeBtn.setMaximumSize(new java.awt.Dimension(200, 70));
@@ -194,7 +194,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         showTeamBtn.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         showTeamBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/compiler/ui/images/team.png"))); // NOI18N
-        showTeamBtn.setText("equipe [F1]");
+        showTeamBtn.setText("team [F1]");
         showTeamBtn.setFocusable(false);
         showTeamBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         showTeamBtn.setMaximumSize(new java.awt.Dimension(200, 70));
@@ -272,15 +272,15 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         } 
 
-        System.out.println("Nenhum arquivo selecionado.");
+        System.out.println("No file selected.");
     }//GEN-LAST:event_openFileBtnActionPerformed
 
     private void compileCodeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compileCodeBtnActionPerformed
         if (currentFile == null) {
             JOptionPane.showMessageDialog(
             this,
-            "Você deve salvar o arquivo antes de compilá-lo.",
-            "Aviso",
+            "You must save the file before compiling it.",
+            "Warning",
             JOptionPane.WARNING_MESSAGE
             );
             return;
@@ -306,7 +306,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_saveFileBtnActionPerformed
 
     private void showTeamBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTeamBtnActionPerformed
-        terminalTextArea.setText("Pedro Virissimo Scarelli e Vitor da Silva");
+        terminalTextArea.setText("Pedro Virissimo Scarelli and Vitor da Silva");
     }//GEN-LAST:event_showTeamBtnActionPerformed
 
     private void copyTextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyTextBtnActionPerformed
@@ -366,7 +366,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void replaceFileOrCancelSave() {
         var confirm = JOptionPane.showConfirmDialog(this,
-        "O arquivo ja existe. Deseja substituir?", "Substituir Arquivo",
+        "The file already exists. Do you want to replace it?", "Replace File",
         JOptionPane.YES_NO_OPTION);
         
         if (confirm != JOptionPane.NO_OPTION) saveFileAndUpdateStatus();        
@@ -381,17 +381,17 @@ public class MainFrame extends javax.swing.JFrame {
         if (currentFile != null) {
             try {
                 fileManager.writeFile(currentFile, textArea.getText());
-                JOptionPane.showMessageDialog(this, "Arquivo salvo com sucesso.",
-                                              "Salvar Arquivo", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "File saved successfully.",
+                                              "Save File", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(this, "Erro ao salvar o arquivo: " + e.getMessage(),
-                                              "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error saving the file: " + e.getMessage(),
+                                              "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
 
     public int askSaveHow(JFileChooser fileChooser) {
-        fileChooser.setDialogTitle("Salvar Como");
+        fileChooser.setDialogTitle("Save As");
         return fileChooser.showSaveDialog(this);
     }
     
@@ -428,8 +428,8 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }   
         
-        JOptionPane.showMessageDialog(this, "Por favor, selecione um arquivo de texto.",
-        "Arquivo Invalido", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Please select a text file.",
+        "Invalid File", JOptionPane.WARNING_MESSAGE);
     }
 
     private void setTextFromFile(File selectedFile) {
@@ -439,11 +439,11 @@ public class MainFrame extends javax.swing.JFrame {
             changeCurrentFile(selectedFile);
             return;
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Erro ao ler o arquivo: " + e.getMessage(),
-                                          "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error reading the file: " + e.getMessage(),
+                                          "Error", JOptionPane.ERROR_MESSAGE);
         } catch (IllegalArgumentException ex) {     
-            JOptionPane.showMessageDialog(this, "Por favor, selecione um arquivo de texto.",
-                                        "Arquivo Invalido", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select a text file.",
+                                        "Invalid File", JOptionPane.WARNING_MESSAGE);
         }
     }
     
@@ -458,6 +458,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void showError(String errorMessage) {
-        JOptionPane.showMessageDialog(this, errorMessage, "Erro", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
     }
 }

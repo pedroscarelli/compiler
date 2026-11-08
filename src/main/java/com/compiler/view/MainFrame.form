@@ -91,7 +91,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/compiler/ui/images/new-file.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="novo [ctrl-n]"/>
+            <Property name="text" type="java.lang.String" value="new [ctrl-n]"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -117,7 +117,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/compiler/ui/images/open-file.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="abrir [ctrl-o]"/>
+            <Property name="text" type="java.lang.String" value="open [ctrl-o]"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -143,7 +143,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/compiler/ui/images/save-file.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="salvar [ctrl-s]"/>
+            <Property name="text" type="java.lang.String" value="save [ctrl-s]"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -169,7 +169,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/compiler/ui/images/copy.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="copiar [ctrl-c]"/>
+            <Property name="text" type="java.lang.String" value="copy [ctrl-c]"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -195,7 +195,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/compiler/ui/images/paste.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="colar [ctrl-v]"/>
+            <Property name="text" type="java.lang.String" value="paste [ctrl-v]"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -221,7 +221,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/compiler/ui/images/cut.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="recortar [ctrl-x]"/>
+            <Property name="text" type="java.lang.String" value="cut [ctrl-x]"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -247,7 +247,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/compiler/ui/images/play.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="compilar [F7]"/>
+            <Property name="text" type="java.lang.String" value="compile [F7]"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -273,7 +273,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/compiler/ui/images/team.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="equipe [F1]"/>
+            <Property name="text" type="java.lang.String" value="team [F1]"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">

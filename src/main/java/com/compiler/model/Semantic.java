@@ -105,7 +105,7 @@ public class Semantic implements Constants
     private static void method102() throws SemanticError {
         for (int i = 0; i < idList.size(); i++) {
             var id = idList.get(i);
-            if (symbolsTable.contains(id)) throw new SemanticError(currentToken.getLexeme() + " já declarado", currentToken.getPosition());
+            if (symbolsTable.contains(id)) throw new SemanticError(currentToken.getLexeme() + " already declared", currentToken.getPosition());
 
             symbolsTable.add(id);
             var varType = getVariableTypeByName(id);
@@ -144,7 +144,7 @@ public class Semantic implements Constants
 
         for (int i = 0; i < idList.size(); i++) {
             var id = idList.get(i);
-            if (!symbolsTable.contains(id)) throw new SemanticError(currentToken.getLexeme() + " não declarado", currentToken.getPosition());
+            if (!symbolsTable.contains(id)) throw new SemanticError(currentToken.getLexeme() + " not declared", currentToken.getPosition());
 
             objectCode.append(String.format("stloc %s\n", id));
         }
@@ -157,7 +157,7 @@ public class Semantic implements Constants
     
     private static void method105() throws SemanticError {
         var id = currentToken.getLexeme();
-        if (!symbolsTable.contains(id)) throw new SemanticError(currentToken.getLexeme() + " não declarado", currentToken.getPosition());
+        if (!symbolsTable.contains(id)) throw new SemanticError(currentToken.getLexeme() + " not declared", currentToken.getPosition());
     
         objectCode.append("call string [mscorlib]System.Console::ReadLine()\n");
 
@@ -387,7 +387,7 @@ public class Semantic implements Constants
     private static void method127() throws SemanticError {
         var lexeme = currentToken.getLexeme();
         if (!symbolsTable.contains(lexeme)) {
-            throw new SemanticError(currentToken.getLexeme() + " não declarado", currentToken.getPosition());
+            throw new SemanticError(currentToken.getLexeme() + " not declared", currentToken.getPosition());
         }
         var varType = getVariableTypeByName(lexeme);
         typeStack.push(varType);

@@ -1,28 +1,28 @@
-# Compilador de Código-Fonte para MSIL
+# Source Code to MSIL Compiler
 
-Este projeto implementa um compilador completo (análise léxica, sintática e semântica) que lê um arquivo de código-fonte (`.txt`), gera um código-objeto em MSIL (`.il`) e, em seguida, permite a conversão para um executável (`.exe`) no Windows.
+This project implements a complete compiler (lexical, syntactic and semantic analysis) that reads a source code file (`.txt`), generates object code in MSIL (`.il`), and then allows it to be converted into an executable (`.exe`) on Windows.
 
-### Requisitos:
+### Requirements:
 
-Java 17 ou superior
-
----
-
-## 🚀 Funcionalidades
-
-- **Editor de Texto**: Interface com recursos de criação, abertura, edição e salvamento de arquivos de código.
-- **Terminal de Feedback**: Exibe mensagens de erro ou de sucesso.
-- **Gerenciador de Arquivos**: Navegação no sistema para selecionar e salvar arquivos-fonte.
-- **Análise Léxica**: Identifica tokens definidos pelas regras de expressões regulares.
-- **Análise Sintática**: Valida a estrutura do programa de acordo com a gramática LL.
-- **Análise Semântica**: Verifica coerência de tipos e regras semânticas.
-- **Geração de Código MSIL**: Emite instruções IL compatíveis com o .NET/CLI.
+Java 17 or higher
 
 ---
 
-## 📚 Gramática e Configuração (GALS)
+## 🚀 Features
 
-O compilador foi construído com o GALS e segue a seguinte configuração:
+- **Text Editor**: Interface for creating, opening, editing and saving code files.
+- **Feedback Terminal**: Displays error or success messages.
+- **File Manager**: Browse the system to select and save source files.
+- **Lexical Analysis**: Identifies tokens defined by regular expression rules.
+- **Syntactic Analysis**: Validates the program structure according to the LL grammar.
+- **Semantic Analysis**: Checks type consistency and semantic rules.
+- **MSIL Code Generation**: Emits IL instructions compatible with .NET/CLI.
+
+---
+
+## 📚 Grammar and Configuration (GALS)
+
+The compiler was built with GALS and uses the following configuration:
 
 ### Options    
 GenerateScanner = true  
@@ -38,25 +38,25 @@ Parser = LL
 
 
 ### Tokens    
-pr: [a-z] [a-zA-Z]* (palavra reservada)  
-id:! (i_|f_|b_|s_) ([a-z][A-Z]? | [A-Z]) (([a-z] | [0-9]) [A-Z]?) (identificador)  
-cte: [1-9] [0-9]* | 0 (constante inteira)  
-cte_2: ([1-9][0-9]* | 0) , 0-9* (constante float)  
-ct: " ([^\n"%](%x))* " (constante string)  
+pr: [a-z] [a-zA-Z]* (reserved word)  
+id:! (i_|f_|b_|s_) ([a-z][A-Z]? | [A-Z]) (([a-z] | [0-9]) [A-Z]?) (identifier)  
+cte: [1-9] [0-9]* | 0 (integer constant)  
+cte_2: ([1-9][0-9]* | 0) , 0-9* (float constant)  
+ct: " ([^\n"%](%x))* " (string constant)  
 
 
-:! >@ \n [^@]* \n @< (comentário)  
+:! >@ \n [^@]* \n @< (comment)  
 
 
-:[\n\s\t] (quebra de linha, espaço e tab)  
+:[\n\s\t] (line break, space and tab)  
 
 
-// Palavras reservadas e símbolos  
-delimiter tokens (main, read, write, etc.) e operadores lógicos, relacionais e aritméticos.
+// Reserved words and symbols  
+delimiter tokens (main, read, write, etc.) and logical, relational and arithmetic operators.
 
-### Não-Terminais
+### Non-Terminals
 <lista_steps>  <lista_id>        ...
-### Produções Principais
+### Main Productions
 
 ```bnf
 <program> ::= #100 main <lista_steps> end #101 ;
@@ -65,48 +65,48 @@ delimiter tokens (main, read, write, etc.) e operadores lógicos, relacionais e 
 ...
 ```
 
-Para a gramática completa, consulte o arquivo de configuração do GALS 'grammar-rules.gals' na pasta 'gals'.
-Para usar o GALS, rode o seguinte comando na pasta 'gals':  
+For the full grammar, see the GALS configuration file 'grammar-rules.gals' in the 'gals' folder.
+To use GALS, run the following command in the 'gals' folder:  
 ```bash
 java -jar gals.jar
 ```
-Em seguida caso queira verificar as gramáticas no programa, abra o arquivo 'grammar-rules.gals' que também está na pasta 'gals'.
+Then, if you want to inspect the grammars in the program, open the 'grammar-rules.gals' file, which is also in the 'gals' folder.
 
-Documentação do GALS: https://gals.sourceforge.net/
+GALS documentation: https://gals.sourceforge.net/
 
 ---
 
-## 💡 Como Usar
+## 💡 How to Use
 
-1. Crie um arquivo de código-fonte seguindo a gramática definida (por exemplo, programa.txt).
+1. Create a source code file following the defined grammar (for example, program.txt).
 
-2. Execute o compilador em um prompt de comando:
+2. Run the compiler from a command prompt:
    ```bash
    java -jar compiler.jar
    ```
-3. Isso vai abrir o compilador, ai você pode abrir o arquivo criado clicando no botão de abrir ou usando ctrl + o, (ou se quiser pode escrever seu código do zero no editor, ai você deve salvar o arquivo antes de seguir).
+3. This will open the compiler. You can then open the file you created by clicking the open button or using ctrl + o (or, if you prefer, write your code from scratch in the editor, in which case you must save the file before continuing).
 
-4. Após abrir o seu código escrito em txt, você vai ver o conteúdo dele no editor de texto.
+4. After opening your code written in txt, you will see its content in the text editor.
 
-5. Clique em compilar, ou use a hotkey F7, caso tenha erros, ele vai mostrar no terminal do compilador a linha e o erro.
+5. Click compile, or use the F7 hotkey. If there are errors, the compiler terminal will show the line and the error.
 
-6. Caso não tenha erros ele vai gerar o programa .il com o mesmo nome do arquivo .txt pasta onde estava o arquivo que você abriu ou salvou o arquivo.
+6. If there are no errors, it will generate the .il program with the same name as the .txt file, in the folder where the file you opened or saved is located.
 
-7. Agora no prompt de comando do seu computador, na pasta onde está salvo o arquivo use o comando:
+7. Now, in your computer's command prompt, in the folder where the file is saved, use the command:
    
 ```bash
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ilasm programa.il
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ilasm program.il
 ```
-8. Isso produzirá um arquivo programa.exe. Para executar execute o comando no terminal:
+8. This will produce a program.exe file. To run it, execute the command in the terminal:
 ```bash
-programa
+program
 ```
 
 ---
 
-## 📝 Exemplo de Uso
+## 📝 Usage Example
 
-### Arquivo de entrada (area.txt):
+### Input file (area.txt):
 ```bash
 main
   i_lado, i_area;
@@ -114,7 +114,7 @@ main
   repeat
      read (i_lado);
      if i_lado < 0 || i_lado == 0
-        writeln ("valor invalido");
+        writeln ("invalid value");
      end;
   until i_lado > 0;
   i_area = i_lado * i_lado;
@@ -122,7 +122,7 @@ main
 
 end
 ```
-### Geração de .il:
+### Generated .il:
 ```bash
 .assembly extern mscorlib {}
 .assembly _codigo_objeto{}
@@ -154,7 +154,7 @@ end
      or
      brfalse L3
      
-	 ldstr "valor invalido"
+	 ldstr "invalid value"
      call void [mscorlib]System.Console::WriteLine(string)
      br L2  
      L3:

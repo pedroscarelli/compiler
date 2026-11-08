@@ -16,7 +16,7 @@ public class FileManager {
     
     public String readFile(File file) throws IOException {
         if (!isTxtFile(file)) {
-            throw new IllegalArgumentException("Apenas arquivos .txt sï¿½o suportados.");
+            throw new IllegalArgumentException("Only .txt files are supported.");
         }
         
         var content = new StringBuilder();

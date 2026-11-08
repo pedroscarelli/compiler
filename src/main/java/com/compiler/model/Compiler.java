@@ -13,7 +13,7 @@ public class Compiler {
 
     private FileManager fileManager;
 
-    private final String SUCCESS_MESSAGE = "programa compilado com sucesso";
+    private final String SUCCESS_MESSAGE = "program compiled successfully";
 
     private static final String EOF = "EOF";
     private static final String STRING_CONSTANT = "constante_string";
@@ -52,19 +52,19 @@ public class Compiler {
 
     private void treatLexicalError(LexicalError lexicalError) {
         var line = getLineFromPosition(lexicalError.getPosition());
-        resultFeedback = "Erro na linha " + line + " - " + lexicalError.getMessage();
+        resultFeedback = "Error on line " + line + " - " + lexicalError.getMessage();
     }
 
     private void treatSyntaticError(SyntaticError syntaticError) {
         var line = getLineFromPosition(syntaticError.getPosition());
         var lexeme = syntaticError.getLexeme();
         lexeme = getLexemeOrEOF(syntaticError.getPosition(), lexeme);
-        resultFeedback = "Erro na linha " + line + " - " + "encontrado " + lexeme + " " + syntaticError.getMessage();
+        resultFeedback = "Error on line " + line + " - " + "found " + lexeme + " " + syntaticError.getMessage();
     }
 
     private void treatSemanticError(SemanticError semanticError) {
         var line = getLineFromPosition(semanticError.getPosition());
-        resultFeedback = "Erro na linha " + line + " - " + semanticError.getMessage();
+        resultFeedback = "Error on line " + line + " - " + semanticError.getMessage();
     }
 
     private int getLineFromPosition(int position) {
