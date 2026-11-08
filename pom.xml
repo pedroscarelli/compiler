@@ -7,12 +7,11 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
     <build>
         <plugins>
-            <!-- Plugin para empacotar o jar -->
+            <!-- Builds the runnable jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -27,7 +26,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Plugin para rodar testes -->
+            <!-- Runs the tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -38,7 +37,7 @@
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <version>5.11.3</version>
             <scope>test</scope>
         </dependency>
