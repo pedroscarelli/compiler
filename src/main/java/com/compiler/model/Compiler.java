@@ -78,7 +78,8 @@ public class Compiler {
     }
     
     private String getLexemeOrEOF(int position, String lexeme) {
-        var inputTextTrimmed  = inputText.trim();
+        // only trailing whitespace is dropped, so positions still match the original text
+        var inputTextTrimmed  = inputText.stripTrailing();
         if (isEndOfFile(position, inputTextTrimmed)) return EOF;
         
         if(lexeme == null) {
@@ -91,14 +92,14 @@ public class Compiler {
     }
     
     private boolean isEndOfFile(int position, String inputTextTrimmed) {
-        return position == inputTextTrimmed.length();
+        return position >= inputTextTrimmed.length();
     }
 
     private String extractLexemeFromPosition(int position, String inputTextTrimmed) {  
         var lexeme = new StringBuilder();  
         lexeme.append(inputTextTrimmed.charAt(position));
         
-        for(int i = position + 1; i < inputText.length(); i++){
+        for(int i = position + 1; i < inputTextTrimmed.length(); i++){
             var currentChar = inputTextTrimmed.charAt(i);
             if (!Character.isWhitespace(currentChar) && currentChar != '\n'){
                 lexeme.append(currentChar);
