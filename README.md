@@ -76,6 +76,15 @@ GALS documentation: https://gals.sourceforge.net/
 
 ---
 
+## 🧪 Building and testing
+
+```bash
+mvn test       # semantic actions plus end-to-end compiler tests
+mvn package    # builds target/compiler-1.0.jar
+```
+
+---
+
 ## 💡 How to Use
 
 1. Create a source code file following the defined grammar (for example, program.txt).
