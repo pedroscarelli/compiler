@@ -63,6 +63,7 @@ public class Semantic implements Constants
     {
         currentToken = token;
         var methodAction = ACTIONS.get(action);
+        if (methodAction == null) throw new SemanticError("Unknown semantic action #" + action, token.getPosition());
         methodAction.run();
     }
 
@@ -105,7 +106,7 @@ public class Semantic implements Constants
     private static void method102() throws SemanticError {
         for (int i = 0; i < idList.size(); i++) {
             var id = idList.get(i);
-            if (symbolsTable.contains(id)) throw new SemanticError(currentToken.getLexeme() + " already declared", currentToken.getPosition());
+            if (symbolsTable.contains(id)) throw new SemanticError(id + " already declared", currentToken.getPosition());
 
             symbolsTable.add(id);
             var varType = getVariableTypeByName(id);
@@ -137,14 +138,14 @@ public class Semantic implements Constants
     
     private static void method103() throws SemanticError {
         var type = typeStack.pop();
-        if (type == "int64") objectCode.append("conv.i8\n");
+        if (type.equals("int64")) objectCode.append("conv.i8\n");
         for (int i = 0; i < idList.size() - 1; i++) {
             objectCode.append("dup\n");
         }
 
         for (int i = 0; i < idList.size(); i++) {
             var id = idList.get(i);
-            if (!symbolsTable.contains(id)) throw new SemanticError(currentToken.getLexeme() + " not declared", currentToken.getPosition());
+            if (!symbolsTable.contains(id)) throw new SemanticError(id + " not declared", currentToken.getPosition());
 
             objectCode.append(String.format("stloc %s\n", id));
         }
@@ -201,8 +202,8 @@ public class Semantic implements Constants
     private static void method108() {
         var tokenType = typeStack.pop();
 
-        if (tokenType == "int64") objectCode.append("conv.i8\n");
-        else if (tokenType == "bool") tokenType += "ean";
+        if (tokenType.equals("int64")) objectCode.append("conv.i8\n");
+        else if (tokenType.equals("bool")) tokenType += "ean";
 
         objectCode.append(String.format("call void [mscorlib]System.Console::Write(%s)\n", tokenType));
     }
@@ -356,13 +357,13 @@ public class Semantic implements Constants
     }
 
     private static void getRelationalCombination(String firstValueType, String secondValueType) throws SemanticError {
-        if(isTypesValidForRelationalOperation(firstValueType, secondValueType))
+        if(isRelationalOperationInvalid(firstValueType, secondValueType))
             throw new SemanticError("Types not compatible", currentToken.getPosition());
         pushBooleanTypeToStack();
     }
 
-    private static boolean isTypesValidForRelationalOperation(String firstValueType, String secondValueType) {
-        return (firstValueType != secondValueType) || 
+    private static boolean isRelationalOperationInvalid(String firstValueType, String secondValueType) {
+        return !firstValueType.equals(secondValueType) || 
         (!firstValueType.equals("int64") && !firstValueType.equals("float64") && !firstValueType.equals("string")) || 
         (!secondValueType.equals("int64") && !secondValueType.equals("float64") && !secondValueType.equals("string"));
     }
@@ -372,7 +373,7 @@ public class Semantic implements Constants
     }
     
     private static void getArimethicCombination(String firstValueType, String secondValueType) throws SemanticError {
-        if (firstValueType == secondValueType) {
+        if (firstValueType.equals(secondValueType)) {
             typeStack.push(firstValueType);
             return;
         } else if (firstValueType.equals("int64") && secondValueType.equals("float64") || 
@@ -413,7 +414,7 @@ public class Semantic implements Constants
     }
     
     private static void method131() {
-        objectCode.append(String.format("ldc.r8 -1.0\nmul\n", currentToken.getLexeme()));
+        objectCode.append("ldc.r8 -1.0\nmul\n");
     }
 
     //testing methods
