@@ -50,9 +50,11 @@ public class FileManager {
     }
 
     public String removeFileExtension(String filePathAndName) {
-        if (!filePathAndName.contains(".")) return filePathAndName;
-
         var lastDotIndex = filePathAndName.lastIndexOf(".");
+        var lastSeparatorIndex = filePathAndName.lastIndexOf(File.separatorChar);
+        // a dot inside a folder name (e.g. /home/me/my.project/code) is not an extension
+        if (lastDotIndex <= lastSeparatorIndex + 1) return filePathAndName;
+
         return filePathAndName.substring(0, lastDotIndex);
     }
 }
